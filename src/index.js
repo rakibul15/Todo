@@ -6,11 +6,55 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import reportWebVitals from './reportWebVitals';
 import 'font-awesome/css/font-awesome.min.css'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux';
+
+
+
+const initilizeState={
+  counter:10,
+};
+
+function CounterReducer(state=initilizeState,action){
+  switch(action.type){
+    case'GET_COUNTER':
+    return{
+      ...state,
+    };
+    case'INC':
+    return{
+      ...state,
+      counter: state.counter + 1,
+    };
+    break;
+    case'DEC':
+    return{
+      ...state,
+      counter: state.counter - 1,
+    };
+    break;
+    case'UPDATE':
+    return{
+      ...state,
+      counter:action.payload,
+    };
+    break;
+    default:
+       break;
+  }
+
+  return state;
+};
+
+let store=createStore(CounterReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Form,
     Button,
   } from "react-bootstrap";
 
-const Taskcreate = () => {
+const Taskcreate = (props) => {
+  // const {title,createTask,setTitle,description,setDescription,priority,setPriority}=props;
+  const [title, setTitle] = useState('')
+  const [priority, setPriority] = useState('')
+
+  const createTask=()=>{
+    alert("Hello")
+  }
     return (
         <div>
             <Form onSubmit={(e) => createTask(e)}>
@@ -17,15 +24,7 @@ const Taskcreate = () => {
                 />
               </Form.Group>
 
-              <Form.Group controlId="des">
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  placeholder="description"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                />
-              </Form.Group>
+              
 
               <select
                 className="form-control"

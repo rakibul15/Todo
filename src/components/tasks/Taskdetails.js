@@ -7,7 +7,7 @@ const Taskdetails = (props) => {
             <tr>
                   <td>{index + 1}</td>
                   <td>{item.title}</td>
-                  <td>{item.description}</td>
+                  <td>{item.body}</td>
                   <td>{item.priority}</td>
                   <td>
                     <i
